@@ -43,6 +43,11 @@ public class CrewServiceIT {
         jsonBuilder.add("crewID", "000002");
         jsonBuilder.add("rank", "Engineer");
         arrayBuilder.add(jsonBuilder.build());
+        jsonBuilder = Json.createObjectBuilder();
+        jsonBuilder.add("name", "Member3");
+        jsonBuilder.add("crewID", "000003");
+        jsonBuilder.add("rank", "Officer");
+        arrayBuilder.add(jsonBuilder.build());
         testData = arrayBuilder.build();
     }
 
@@ -54,7 +59,7 @@ public class CrewServiceIT {
     @Test
     @Order(1)
     public void testAddCrewMember() {
-        System.out.println("   === Adding " + testData.size()
+        System.out.println("   === JTM Adding " + testData.size()
                 + " crew members to the database. ===");
 
         for (int i = 0; i < testData.size(); i++) {
@@ -74,7 +79,7 @@ public class CrewServiceIT {
     @Test
     @Order(2)
     public void testUpdateCrewMember() {
-        System.out.println("   === Updating crew member with id " + testIDs.get(0)
+        System.out.println("   === JTM Updating crew member with id " + testIDs.get(0)
                 + ". ===");
 
         JsonObject oldMember = (JsonObject) testData.get(0);
@@ -96,7 +101,7 @@ public class CrewServiceIT {
     @Test
     @Order(3)
     public void testGetCrewMembers() {
-        System.out.println("   === Listing crew members from the database. ===");
+        System.out.println("   === JTM Listing crew members from the database. ===");
 
         String url = rootURL + "/api/crew";
         Response response = client.target(url).request().get();
@@ -129,7 +134,7 @@ public class CrewServiceIT {
     @Test
     @Order(4)
     public void testDeleteCrewMember() {
-        System.out.println("   === Removing " + testIDs.size() 
+        System.out.println("   === JTM Removing " + testIDs.size() 
                 + " crew members from the database. ===");
 
         for (String id : testIDs) {
@@ -139,7 +144,7 @@ public class CrewServiceIT {
             response.close();
         }
 
-        System.out.println("      === Done. ===");
+        System.out.println("      === JTM Done. ===");
     }
 
     private void assertResponse(String url, Response response) {
