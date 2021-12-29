@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crew-deployment
+  labels:
+    app: crew
+spec:
+  selector:
+    matchLabels:
+      app: crew
+  template:
+    metadata:
+      labels:
+        app: crew
+    spec:
+      containers:
+      - name: system-container
+        image: image-registry.openshift-image-registry.svc:5000/tmgt2/crew:1.0-SNAPSHOT
+        ports:
+        - containerPort: 9080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: crew-service
+spec:
+  selector:
+    app: crew
+  ports:
+  - protocol: TCP
+    port: 9080
+---
+apiVersion: v1
+kind: Route
+metadata:
+  name: crew-route
+spec:
+  to:
+    kind: Service
+    name: crew-service
