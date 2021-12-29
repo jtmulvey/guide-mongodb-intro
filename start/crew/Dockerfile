@@ -1,4 +1,4 @@
-FROM openliberty/open-liberty:21.0.0.12-full-java8-openj9-ubi
+FROM openliberty/open-liberty
 
 ARG VERSION=1.0
 ARG REVISION=SNAPSHOT

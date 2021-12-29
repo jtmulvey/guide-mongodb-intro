@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: system-container
-        image: image-registry.openshift-image-registry.svc:5000/tmgt2/crew:1.0-SNAPSHOT
+        image: image-registry.openshift-image-registry.svc:5000/tmgt2/crew:1.1-SNAPSHOT
         ports:
         - containerPort: 9080
 ---

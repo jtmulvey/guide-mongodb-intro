@@ -17,8 +17,8 @@ docker run --name mongo-guide -p 27017:27017 -d mongo-sample
 sleep 10
 
 # copy truststore from container to host
-docker cp mongo-guide:/home/mongodb/certs/truststore.p12 start/src/main/liberty/config/resources/security
-docker cp mongo-guide:/home/mongodb/certs/truststore.p12 finish/src/main/liberty/config/resources/security
+docker cp mongo-guide:/home/mongodb/certs/truststore.p12 start/crew/src/main/liberty/config/resources/security
+docker cp mongo-guide:/home/mongodb/certs/truststore.p12 finish/crew/src/main/liberty/config/resources/security
 
 ## Move back to the finish folder
 cd finish
